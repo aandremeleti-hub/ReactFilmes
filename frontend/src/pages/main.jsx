@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import axios from 'axios'
 import { ModalMovie } from "../modals/modalMovie/modalMovie"
+import './main.css' 
 
 export const Main = () => {
 
