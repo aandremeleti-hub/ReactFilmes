@@ -1,4 +1,6 @@
-export const ModalMovie = () => {
+import './modalMovie.css'
+
+export const ModalMovie = ({open, close, filme}) => {
 
     if (!open) return null // se open for false, não renderiza nada (modal "não existe" na tela)
 
