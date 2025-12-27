@@ -30,7 +30,7 @@ export const Main = () => {
             })
     })
     return (
-        <main>
+        <main className="content-main-cards">
             <h1>Nossos filmes</h1>
             <div className="container-cards">
                 {filmes.map((filme, index) => (//expressão JS dentro do JSX para usar a variável filmes que vem do backend
