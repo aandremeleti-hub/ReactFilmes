@@ -1,0 +1,47 @@
+import { useEffect, useState } from "react"
+import axios from 'axios'
+
+export const Main = () => {
+
+    const [filmes, setFilmes] = useState([])//filmes → variável que guarda o array vindo do backend
+    //setFilmes → função que atualiza essa variável
+    //[] → valor inicial (array vazio)
+
+    const [open, setOpen] = useState([])// controla se o modal está aberto
+
+    const [filmeSelecionado, setfilmeSelecionado] = useState([])// guarda o filme clicado
+
+
+    const openModal = (filme) => {// função que abre o modal - 'filme' é o filme clicado
+        setfilmeSelecionado(filme)// atualiza o filme selecionado que será o filme clicado
+        setOpen(true)
+    }
+
+    const closeModal = () => {
+        setOpen(false)
+    }
+
+    useEffect(() => {
+        axios.get("http://localhost:8081")
+            .then((res) => {
+                setFilmes(res.data)
+            })
+    })
+    return (
+        <main>
+            <h1>Nossos filmes</h1>
+            <div className="container-cards">
+                {filmes.map((filme, index) => (//expressão JS dentro do JSX para usar a variável filmes que vem do backend
+                                               //map → para cada filme dentro do array filmes, faça o seguinte:
+                    <div key={index}
+                        className="card"
+                        onClick={() => openModal(filme)}>
+                        <h2>{filme.nome}</h2>
+                        <img src={filme.image} alt={filme.nome} />
+                        <button className="btn-primary">Saiba mais</button>
+                    </div>
+                ))}
+            </div>
+        </main>
+    )
+}
