@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import axios from 'axios'
 import { ModalMovie } from "../modals/modalMovie/modalMovie"
-import './main.css' 
+import './main.css'
 
 export const Main = () => {
 
@@ -13,6 +13,7 @@ export const Main = () => {
 
     const [filmeSelecionado, setfilmeSelecionado] = useState(null)// guarda o filme clicado
 
+    const [openCadastro, setOpenCadastro] = useState(false)
 
     const openModal = (filme) => {// função que abre o modal - 'filme' é o filme clicado
         setfilmeSelecionado(filme)// atualiza o filme selecionado que será o filme clicado
@@ -21,6 +22,14 @@ export const Main = () => {
 
     const closeModal = () => {
         setOpen(false)
+    }
+
+    const abrirCadastro = () => {
+        setOpenCadastro(true)
+    }
+
+    const fecharCadastro = () => {
+        setOpenCadastro(false)
     }
 
     useEffect(() => {
@@ -44,6 +53,9 @@ export const Main = () => {
                     </div>
                 ))}
             </div>
+            <button className="btn-primary" onClick={abrirCadastro}>
+                Cadastrar filme
+            </button>
             <ModalMovie
                 open={open}
                 close={closeModal}
