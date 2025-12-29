@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import axios from 'axios'
 import { ModalMovie } from "../modals/modalMovie/modalMovie"
 import './main.css'
+import { ModalCadastro } from "../modals/modalCadastro/modalCadastro"
 
 export const Main = () => {
 
@@ -53,7 +54,7 @@ export const Main = () => {
                     </div>
                 ))}
             </div>
-            
+
             <div className="btn-signup-container">
                 <button className="btn-primary" onClick={abrirCadastro}>
                     Cadastrar filme
@@ -64,6 +65,9 @@ export const Main = () => {
                 open={open}
                 close={closeModal}
                 filme={filmeSelecionado} />
+            <ModalCadastro
+                open={openCadastro}
+                close={fecharCadastro} />
         </main>
 
     )
