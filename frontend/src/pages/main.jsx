@@ -53,9 +53,13 @@ export const Main = () => {
                     </div>
                 ))}
             </div>
-            <button className="btn-primary" onClick={abrirCadastro}>
-                Cadastrar filme
-            </button>
+            
+            <div className="btn-signup-container">
+                <button className="btn-primary" onClick={abrirCadastro}>
+                    Cadastrar filme
+                </button>
+            </div>
+
             <ModalMovie
                 open={open}
                 close={closeModal}
