@@ -16,6 +16,10 @@ export const Main = () => {
 
     const [openCadastro, setOpenCadastro] = useState(false)
 
+    const [nome, setNome] = useState("")
+    const [image, setImage] = useState("")
+    const [descricao, setDescricao] = useState("")
+
     const openModal = (filme) => {// função que abre o modal - 'filme' é o filme clicado
         setfilmeSelecionado(filme)// atualiza o filme selecionado que será o filme clicado
         setOpen(true)
@@ -39,6 +43,14 @@ export const Main = () => {
                 setFilmes(res.data)
             })
     })
+
+    const cadastrarFilme = () => {
+        const novoFilme = {
+            nome: nome,
+            image: image,
+            descricao: descricao
+        }
+    }
     return (
         <main className="content-main-cards">
             <h1>Nossos filmes</h1>
@@ -67,7 +79,14 @@ export const Main = () => {
                 filme={filmeSelecionado} />
             <ModalCadastro
                 open={openCadastro}
-                close={fecharCadastro} />
+                close={fecharCadastro}
+                nome={nome}
+                setNome={setNome}
+                image={image}
+                setImage={setImage}
+                descricao={descricao}
+                setdescricao={setDescricao}
+                 />
         </main>
 
     )
