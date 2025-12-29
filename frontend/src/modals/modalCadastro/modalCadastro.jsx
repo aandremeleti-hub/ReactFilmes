@@ -8,13 +8,17 @@ export const ModalCadastro = ({
     image,
     setImage,
     descricao,
-    setDescricao
+    setDescricao,
+    cadastrar
 }) => {
 
     if (!open) return null
 
     return (
         <div className="modal-overlay" onClick={close}>
+            <div>
+                
+            </div>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                 <button className="modal-close" onClick={close}>X</button>
                 <h2>Cadastrar filme</h2>
@@ -37,9 +41,15 @@ export const ModalCadastro = ({
                         className='textarea-modal-form'
                         placeholder='Descrição'
                         value={descricao}
-                        onChange={(e) => setDescricao(e.target.value)}>
+                        onChange={(e) => {
+                            setDescricao(e.target.value);
+                        }}
+                    >
                     </textarea>
-                    <button className='btn-primary'>
+                    <button
+                        type="button"
+                        className='btn-primary'
+                        onClick={cadastrar}>
                         Cadastrar
                     </button>
                 </form>

@@ -40,9 +40,10 @@ export const Main = () => {
     useEffect(() => {
         axios.get("http://localhost:8081")
             .then((res) => {
+                 console.log("Resposta do backend:", res.data);
                 setFilmes(res.data)
             })
-    })
+    },[])
 
     const cadastrarFilme = () => {
         const novoFilme = {
@@ -50,7 +51,17 @@ export const Main = () => {
             image: image,
             descricao: descricao
         }
+
+        axios.post("http://localhost:8081/cadastrar", novoFilme)
+            .then(() => {
+                setFilmes([...filmes, novoFilme])
+                setNome("")
+                setImage("")
+                setDescricao("")
+                setOpenCadastro(false)
+            })
     }
+
     return (
         <main className="content-main-cards">
             <h1>Nossos filmes</h1>
@@ -85,8 +96,9 @@ export const Main = () => {
                 image={image}
                 setImage={setImage}
                 descricao={descricao}
-                setdescricao={setDescricao}
-                 />
+                setDescricao={setDescricao}
+                cadastrar={cadastrarFilme}
+            />
         </main>
 
     )
