@@ -1,0 +1,45 @@
+.modal-overlay { /* fundo escuro cobrindo a tela */
+  position: fixed; /* fica fixo na tela */
+  top: 0; /* encosta no topo */
+  left: 0; /* encosta na esquerda */
+  width: 100%; /* cobre largura toda */
+  height: 100%; /* cobre altura toda */
+  display: flex; /* centraliza conteúdo */
+  align-items: center; /* centraliza vertical */
+  justify-content: center; /* centraliza horizontal */
+  background: rgba(0, 0, 0, 0.6); /* escurece o fundo */
+  padding: 20px; /* espaço para não colar nas bordas */
+}
+
+.modal-content { /* caixa branca do modal */
+  max-width: 400px; /* limite de largura */
+  background: rgb(255, 255, 255); /* fundo branco */
+  border-radius: 12px; /* arredondamento */
+  padding: 16px; /* espaço interno */
+  position: relative; /* para posicionar o botão X */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+  color: blue;
+  font-weight: 600;
+  
+}
+
+.modal-close { /* botão X */
+  position: absolute; /* fica no canto */
+  top: 10px; /* distância do topo */
+  right: 10px; /* distância da direita */
+  cursor: pointer; /* mãozinha */
+  background-color: white;
+}
+
+.modal-content img { /* imagem dentro do modal */
+  width: 60%; /* responsivo */
+  height: auto; /* mantém proporção */
+  border-radius: 8px; /* arredondamento */
+}
+
+.modal-content p {
+    text-align: center;
+}
